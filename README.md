@@ -10,13 +10,15 @@ Original code from Tyler Smith: http://emacs.stackexchange.com/questions/29441/h
 You can install this package from [Melpa][]
 
 ```
-M-x package-install RET eslintd-fix RET
+M-x package-install RET contextual-menubar RET
 ```
 
 ## Usage
 
+Add to your `init.el`:
+
 ```elisp
-(require 'contextual-menubar)
+(contextual-menubar-install-hook)
 ```
 
 [Melpa]: http://melpa.milkbox.net/

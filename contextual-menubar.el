@@ -9,10 +9,10 @@
 ;;; Commentary:
 
 ;; This package displays the menubar if on a graphical display, but hides it if
-;; in terminal. It works for multiple frames on the same server. To use it,
-;; require it:
+;; in terminal. It works for multiple frames on the same server. To use it, add
+;; this to your `init.el':
 
-;;    (require 'contextual-menubar)
+;;    (contextual-menubar-install-hook)
 
 ;;; License:
 
@@ -42,7 +42,10 @@
                        (if (display-graphic-p frame)
                            1 0)))
 
-(add-hook 'after-make-frame-functions 'contextual-menubar-show-or-hide-menubar)
+;;;###autoload
+(defun contextual-menubar-install-hook ()
+  "Installs `contextual-menubar-show-or-hide-menubar' to `after-make-frame-functions'"
+  (add-hook 'after-make-frame-functions 'contextual-menubar-show-or-hide-menubar))
 
 (provide 'contextual-menubar)
 ;;; contextual-menubar.el ends here
