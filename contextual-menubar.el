@@ -1,4 +1,5 @@
-;;; contextual-menubar.el --- use eslint_d to automatically fix js files
+;;; contextual-menubar.el --- display the menubar if on a graphical display, but
+;;; hide it if in a terminal.
 
 ;; Copyright (C) 2017 by Aaron Jensen
 
