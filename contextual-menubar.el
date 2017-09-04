@@ -1,5 +1,4 @@
-;;; contextual-menubar.el --- display the menubar if on a graphical display, but
-;;; hide it if in a terminal.
+;;; contextual-menubar.el --- display the menubar only on a graphical display
 
 ;; Copyright (C) 2017 by Aaron Jensen
 
@@ -45,7 +44,7 @@
 
 ;;;###autoload
 (defun contextual-menubar-install-hook ()
-  "Installs `contextual-menubar-show-or-hide-menubar' to `after-make-frame-functions'"
+  "Install `contextual-menubar-show-or-hide-menubar' to `after-make-frame-functions'."
   (add-hook 'after-make-frame-functions 'contextual-menubar-show-or-hide-menubar))
 
 (provide 'contextual-menubar)
