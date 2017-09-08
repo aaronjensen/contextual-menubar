@@ -12,7 +12,7 @@
 ;; in terminal. It works for multiple frames on the same server. To use it, add
 ;; this to your `init.el':
 
-;;    (contextual-menubar-install-hook)
+;;    (contextual-menubar-install)
 
 ;;; License:
 
@@ -43,7 +43,7 @@
                            1 0)))
 
 ;;;###autoload
-(defun contextual-menubar-install-hook ()
+(defun contextual-menubar-install ()
   "Install `contextual-menubar-show-or-hide-menubar' to `after-make-frame-functions'."
   (add-hook 'after-make-frame-functions 'contextual-menubar-show-or-hide-menubar))
 

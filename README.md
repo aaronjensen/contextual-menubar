@@ -18,7 +18,7 @@ M-x package-install RET contextual-menubar RET
 Add to your `init.el`:
 
 ```elisp
-(contextual-menubar-install-hook)
+(contextual-menubar-install)
 ```
 
 [Melpa]: http://melpa.milkbox.net/
