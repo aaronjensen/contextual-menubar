@@ -1,5 +1,8 @@
 # contextual-menubar
 
+[![MELPA](https://melpa.org/packages/contextual-menubar-badge.svg)](https://melpa.org/#/contextual-menubar) [![MELPA Stable](https://stable.melpa.org/packages/contextual-menubar-badge.svg)](https://stable.melpa.org/#/contextual-menubar)
+
+
 Displays the menubar if on a graphical display, but hides it if in a terminal.
 It works for multiple frames on the same server.
 
