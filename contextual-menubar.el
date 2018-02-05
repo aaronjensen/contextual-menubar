@@ -1,4 +1,4 @@
-;;; contextual-menubar.el --- display the menubar only on a graphical display
+;;; contextual-menubar.el --- display the menubar only on a graphical display -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 by Aaron Jensen
 
@@ -42,9 +42,19 @@
                        (if (display-graphic-p frame)
                            1 0)))
 
+(defun contextual-menubar-disable-menu-bar (oldfun &rest args)
+  "Advice to agument `default-frame-alist' to have no menu-bar in OLDFUN.
+ARGS are passed through unchanged."
+  (let ((default-frame-alist `((menu-bar-lines . 0) . ,default-frame-alist)))
+    (apply oldfun args)))
+
 ;;;###autoload
 (defun contextual-menubar-install ()
-  "Install `contextual-menubar-show-or-hide-menubar' to `after-make-frame-functions'."
+  "Install `contextual-menubar-show-or-hide-menubar' to `after-make-frame-functions'.
+Also advice server-create-tty-frame to create frame without menu-bar
+initially."
+  (with-eval-after-load 'server
+    (advice-add 'server-create-tty-frame :around 'contextual-menubar-disable-menu-bar))
   (add-hook 'after-make-frame-functions 'contextual-menubar-show-or-hide-menubar))
 
 (provide 'contextual-menubar)
